@@ -23,13 +23,13 @@ class PrimeFactorsSpec extends Specification {
     }
 
     def primeFactors(int input) {
-        if (input == 1)
-            return []
         if (input == 2)
             return [2]
+        if (input == 3)
+            return [3]
         if (input == 4)
             return [2, 2]
-        return [3]
+        return []
     }
 
 }
