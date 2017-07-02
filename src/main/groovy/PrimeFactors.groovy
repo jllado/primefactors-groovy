@@ -4,19 +4,18 @@
 class PrimeFactors {
 
     def static generate(int number) {
-        return breakDown(number, 2)
+        return breakDownByCandidate(number, 2)
     }
 
-    private static List breakDown(int number, int candidate) {
+    private static List breakDownByCandidate(int number, int candidate) {
         def result = []
-        if (number == 1) {
+        if (number == 1)
             return result
-        }
         while (isDivisibleByCandidate(number, candidate)) {
             result << candidate
             number /= candidate
         }
-        result.addAll(breakDown(number, candidate + 1))
+        result.addAll(breakDownByCandidate(number, candidate + 1))
         return result
     }
 
