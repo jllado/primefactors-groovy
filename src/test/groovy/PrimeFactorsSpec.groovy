@@ -25,12 +25,10 @@ class PrimeFactorsSpec extends Specification {
     def primeFactors(int input) {
         def result = []
         int remaining = input
-        if (remaining % 2 == 0) {
+        while (remaining % 2 == 0) {
             result << 2
             remaining /= 2
         }
-        if (remaining == 2)
-            result << 2
         if (remaining == 3)
             result << 3
         if (remaining == 5)
