@@ -24,12 +24,16 @@ class PrimeFactorsSpec extends Specification {
         def result = []
         int remaining = input
         for (int candidate = 2; candidate <= input; candidate++) {
-            while (remaining % candidate == 0) {
+            while (isDivisibleByCandidate(remaining, candidate)) {
                 result << candidate
                 remaining /= candidate
             }
         }
         return result
+    }
+
+    private boolean isDivisibleByCandidate(int remaining, int candidate) {
+        return remaining % candidate == 0
     }
 
 }
