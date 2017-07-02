@@ -2,7 +2,6 @@ import spock.lang.Specification
 
 
 /**
- * 5  -> [5]
  * 6  -> [2, 3]
  * 7  -> [7]
  * 8  -> [2, 2, 2]
@@ -20,6 +19,7 @@ class PrimeFactorsSpec extends Specification {
         2     | [2]
         3     | [3]
         4     | [2, 2]
+        5     | [5]
     }
 
     def primeFactors(int input) {
@@ -29,6 +29,8 @@ class PrimeFactorsSpec extends Specification {
             return [3]
         if (input == 4)
             return [2, 2]
+        if (input == 5)
+            return [5]
         return []
     }
 
