@@ -15,8 +15,7 @@ class PrimeFactors {
             result << candidate
             number /= candidate
         }
-        result.addAll(breakDownByCandidate(number, candidate + 1))
-        return result
+        return result + breakDownByCandidate(number, candidate + 1)
     }
 
     private static boolean isDivisibleByCandidate(int number, int candidate) {
