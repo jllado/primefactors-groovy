@@ -9,12 +9,14 @@ class PrimeFactors {
 
     private static List breakDown(int number, int candidate) {
         def result = []
-        for (; candidate <= number; candidate++) {
-            while (isDivisibleByCandidate(number, candidate)) {
-                result << candidate
-                number /= candidate
-            }
+        if (number == 1) {
+            return result
         }
+        while (isDivisibleByCandidate(number, candidate)) {
+            result << candidate
+            number /= candidate
+        }
+        result.addAll(breakDown(number, candidate + 1))
         return result
     }
 
