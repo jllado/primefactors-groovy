@@ -24,16 +24,17 @@ class PrimeFactorsSpec extends Specification {
 
     def primeFactors(int input) {
         def result = []
-        if (input % 2 == 0)
+        int remaining = input
+        if (remaining % 2 == 0) {
             result << 2
-        if (input == 4)
+            remaining /= 2
+        }
+        if (remaining == 2)
             result << 2
-        if (input == 6)
+        if (remaining == 3)
             result << 3
-        if (input == 3)
-            return [3]
-        if (input == 5)
-            return [5]
+        if (remaining == 5)
+            result << 5
         return result
     }
 
