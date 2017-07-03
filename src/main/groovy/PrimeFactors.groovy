@@ -5,7 +5,7 @@ class PrimeFactors {
 
     def static generate(int number) {
         def result = []
-        for (int candidate = 2; candidate <= number; candidate++) {
+        for (int candidate = 2; number > 1; candidate++) {
             while (isDivisibleByCandidate(number, candidate)) {
                 result << candidate
                 number /= candidate
