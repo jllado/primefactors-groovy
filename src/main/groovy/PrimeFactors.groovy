@@ -3,22 +3,39 @@
  */
 class PrimeFactors {
 
+    private static final int FIRST_PRIME_NUMBER = 2
+
     def static generate(int number) {
-        return breakDownByCandidate(number, 2)
+        return breakDown(number, FIRST_PRIME_NUMBER)
     }
 
-    private static List breakDownByCandidate(int number, int candidate) {
+    private static List breakDown(int number, int primeNumber) {
         def result = []
+        while (isDivisible(number, primeNumber)) {
+            result << primeNumber
+            number /= primeNumber
+        }
         if (number == 1)
             return result
-        while (isDivisibleByCandidate(number, candidate)) {
-            result << candidate
-            number /= candidate
-        }
-        return result + breakDownByCandidate(number, candidate + 1)
+        return result + breakDown(number, nextPrimeNumber(number, primeNumber))
     }
 
-    private static boolean isDivisibleByCandidate(int number, int candidate) {
+    private static int nextPrimeNumber(int number, int primeNumber) {
+        if (primeNumber == 2)
+            return 3
+        while (!isDivisible(number, primeNumber)) {
+            primeNumber += 2
+            if (primeNumber >= limit(number))
+                return  number
+        }
+        return primeNumber
+    }
+
+    private static double limit(int number) {
+        return Math.sqrt(number)
+    }
+
+    private static boolean isDivisible(int number, int candidate) {
         return number % candidate == 0
     }
 
