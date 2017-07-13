@@ -1,6 +1,9 @@
+import groovy.transform.CompileStatic
+
 /**
  * Created by jllado on 2/07/17.
  */
+@CompileStatic
 class PrimeFactors {
 
     def static generate(int number) {
