@@ -6,7 +6,7 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class PrimeFactors {
 
-    def static generate(int number) {
+    static generate(int number) {
         def result = []
         for (int candidate = 2; number > 1; candidate++) {
             while (isDivisibleByCandidate(number, candidate)) {
@@ -14,11 +14,11 @@ class PrimeFactors {
                 number /= candidate
             }
         }
-        return result
+        result
     }
 
     private static boolean isDivisibleByCandidate(int number, int candidate) {
-        return number % candidate == 0
+        number % candidate == 0
     }
 
 }
